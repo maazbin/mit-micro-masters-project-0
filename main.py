@@ -47,6 +47,10 @@ def norm(A, B):
       s - the L2 norm of A+B.
     """
     #Your code here
+    s = np.linalg.norm(A+B)
+    
+    return  s
+
     raise NotImplementedError
 
 
@@ -62,6 +66,8 @@ def neural_network(inputs, weights):
        out - a 1 x 1 NumPy array, representing the output of the neural network
     """
     #Your code here
+    neural_net = np.tanh(np.transpose((weights)*inputs))  #tanh(wT * inputs)
+    return neural_net
     raise NotImplementedError
 
 def scalar_function(x, y):
@@ -80,14 +86,41 @@ def vector_function(x, y):
 
 
 def main():
-  # for n in range(1,11):
-  #   x = randomization(n)
-  #   print(x)
+  print("Randomization")  #randomization  
+  for n in range(1,11):
+    x = randomization(n)
+    print(x)
     # print(x.shape())
-  # print(operations(2,2))  
+  print(operations(2,2))  
+  
+  print()
+  print()
+
+  print('operations')   #operations
   A  ,B,s = operations(2,2)
   print(f'A : {A}')
   print(f'B : {B}')
   print(f'sum(A+B) : {s}')
+
+  print() 
+  print()
+
+  print('norm')   #norm
+
+  A = np.random.random([1,3])
+  B = np.random.random([1,3])
+  print(f'A = {A}, B = {B}')
+  print(f'norm of A + B ={norm(A,B)}')
+
+  print('neural_network')  # newral network
+  
+  inputs = np.random.random([2,1])
+  weights = np.random.random([2,1])
+  neural_net = neural_network(inputs, weights)
+  print(f'single layer neural network = {neural_net}')  
+
+
+
+
 
 main()  
