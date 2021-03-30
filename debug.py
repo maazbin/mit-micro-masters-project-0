@@ -14,7 +14,7 @@ def get_sum_metrics(predictions, metrics= None):
 
     return sum_metrics
 def gen_add_i(i):
-    return lambda x : x+1
+    return lambda x : x+i
 
 
 def main():
@@ -25,6 +25,8 @@ def main():
     print(get_sum_metrics(0))  # Should be (0 + 0) + (0 + 1) + (0 + 2) = 3
     print(get_sum_metrics(1))  # Should be (1 + 0) + (1 + 1) + (1 + 2) = 6
     print(get_sum_metrics(2))  # Should be (2 + 0) + (2 + 1) + (2 + 2) = 9
+    x = gen_add_i(1)
+    print(f'x = {x(2)}')
 
 if __name__ == "__main__":
     main()
